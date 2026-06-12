@@ -12,9 +12,12 @@ cd claude-config && ./install.sh
 ```
 
 `install.sh` symlinks everything into `~/.claude` (backing up whatever was there), so
-`git pull` updates the live config. Cloud sessions don't read `~/.claude` from this repo —
-for those, copy the relevant pieces into each project's `.claude/` directory or your
-environment's setup script.
+`git pull` updates the live config.
+
+For cloud sessions (claude.ai/code), add `bootstrap.sh` to your environment's setup
+script — it clones this repo into the fresh container and runs the installer. See the
+step-by-step in that file's header. Alternatively, copy the pieces into a project's
+`.claude/` directory to share them with collaborators on that repo.
 
 ## How the pieces form one system
 
