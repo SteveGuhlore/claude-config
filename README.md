@@ -15,9 +15,15 @@ cd claude-config && ./install.sh
 `git pull` updates the live config.
 
 For cloud sessions (claude.ai/code), add `bootstrap.sh` to your environment's setup
-script — it clones this repo into the fresh container and runs the installer. See the
-step-by-step in that file's header. Alternatively, copy the pieces into a project's
-`.claude/` directory to share them with collaborators on that repo.
+script — it fetches this repo into the fresh container and runs the installer. See the
+step-by-step in that file's header.
+
+Note: cloud sandboxes route `git` through a proxy scoped to the *session's own* repo, so
+a plain `git clone` of this repo from another repo's environment returns 403. `bootstrap.sh`
+handles this by falling back to a public tarball download over normal HTTPS, and it never
+hard-fails the host setup script if the fetch is blocked — so a restricted network policy
+degrades to "no custom config" rather than a broken environment. If even the tarball is
+blocked, copy the pieces into the project's own `.claude/` directory instead.
 
 ## How the pieces form one system
 
