@@ -2,7 +2,7 @@
 # Cloud-session bootstrap: fetch this repo and install it into ~/.claude.
 # Intended for a claude.ai/code environment setup script:
 #
-#   bash <(curl -fsSL https://raw.githubusercontent.com/SteveGuhlore/claude-config/main/bootstrap.sh)
+#   bash <(curl -fsSL https://raw.githubusercontent.com/Guhlores-Team/claude-config/main/bootstrap.sh)
 #
 # Cloud note: in claude.ai/code sandboxes, `git` is routed through a
 # scope-enforcing proxy that only authorizes the session's OWN repo, so a
@@ -16,7 +16,7 @@
 # contents scope) as an environment variable; the public repo needs none.
 set -uo pipefail
 
-REPO="SteveGuhlore/claude-config"
+REPO="Guhlores-Team/claude-config"
 REF="${CLAUDE_CONFIG_REF:-main}"
 DIR="$HOME/.claude-config"
 
